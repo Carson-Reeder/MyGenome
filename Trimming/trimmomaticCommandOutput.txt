@@ -1,0 +1,12 @@
+java -jar ~/trimmomatic-0.38.jar PE -threads 16 -phred33 -trimlog file.txt UFVPY74_1.fq.gz UFVPY74_2.fq.gz UFVPY74_1_paired.fastqc UFVPY74_1_unpaired.fastqc UFVPY74_2_paired.fastqc UFVPY74_2_unpaired.fastqc ILLUMINACLIP:adaptors.fasta:2:30:10 SLIDINGWINDOW:20:20 MINLEN:120
+TrimmomaticPE: Started with arguments:
+ -threads 16 -phred33 -trimlog file.txt UFVPY74_1.fq.gz UFVPY74_2.fq.gz UFVPY74_1_paired.fastqc UFVPY74_1_unpaired.fastqc UFVPY74_2_paired.fastqc UFVPY74_2_unpaired.fastqc ILLUMINACLIP:adaptors.fasta:2:30:10 SLIDINGWINDOW:20:20 MINLEN:120
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'GATCGGAAGAGCACACGTCTGAACTCCAGTCACTTAGGCATCTCGTATGC'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+ILLUMINACLIP: Using 1 prefix pairs, 5 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 7245926 Both Surviving: 6227721 (85.95%) Forward Only Surviving: 143497 (1.98%) Reverse Only Surviving: 816111 (11.26%) Dropped: 58597 (0.81%)
+TrimmomaticPE: Completed successfully
