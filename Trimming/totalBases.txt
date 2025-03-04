@@ -1,4 +1,0 @@
-ccre235@ccre235:~/MyGenome/trimmedSequences$ awk 'NR % 4 == 2 {total += length($0)} END {print total}' UFVPY74_1_paired.fastqc
-926247728
-ccre235@ccre235:~/MyGenome/trimmedSequences$ awk 'NR % 4 == 2 {total += length($0)} END {print total}' UFVPY74_2_paired.fastqc
-933687383
