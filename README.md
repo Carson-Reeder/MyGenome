@@ -10,3 +10,5 @@ Input Read Pairs: 7245926, Both Surviving: 6227721 (85.95%), Foward Only Survivi
 
 ## 3 Trimmed Quality Assesment
 Trimmed sequences were analyzed with fastq and contained in the TrimmedQualityAssesment folder.
+Added a file called totalBases.txt that contains the command ran on forward and reverse reads to count the 
+total number of bases
