@@ -16,12 +16,6 @@ The number of bases in foward and reversse reads were then counted using command
 The optimal k-value was found by first using velvet advisor (https://dna.med.monash.edu/~torsten/velvet_advisor/) in order to find a middle, starting k-value. This value was found to be around 93. Once this was found, Velvet was ran with a range of k-values from 61-131 with a step size of 10. This gave an optimal k-value of 91. After this, velvet was ran again with a smaller step size of 2 with k-values ranging from 81-101. This gave a final optimal k-value of 99.
 
 ## 5 BUSCO analysis
-BUSCO was used to assess genome completeness. The database used was odb10_ascomycota. The results from this were `
-C:98.0%[S:97.8%,D:0.2%],F:0.4%,M:1.6%,n:1706,E:3.8%                                       |
-    |1673    Complete BUSCOs (C)    (of which 63 contain internal stop codons)                 |
-    |1669    Complete and single-copy BUSCOs (S)                                               |
-    |4    Complete and duplicated BUSCOs (D)                                                   |
-    |6    Fragmented BUSCOs (F)                                                                |
-    |27    Missing BUSCOs (M)                                                                  |
-    |1706    Total BUSCO groups searched`
+BUSCO was used to assess genome completeness. The database used was odb10_ascomycota. The results from this were 
+`C:98.0%[S:97.8%,D:0.2%],F:0.4%,M:1.6%,n:1706,E:3.8%`  
 
