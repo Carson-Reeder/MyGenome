@@ -19,3 +19,12 @@ The optimal k-value was found by first using velvet advisor (https://dna.med.mon
 BUSCO was used to assess genome completeness. The database used was odb10_ascomycota. The results from this were 
 `C:98.0%[S:97.8%,D:0.2%],F:0.4%,M:1.6%,n:1706,E:3.8%`  
 
+## 6 BLAST
+
+## 7 NCBI Submission
+
+## 8 Gene Prediction
+
+
+
+
