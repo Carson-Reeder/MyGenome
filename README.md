@@ -43,11 +43,56 @@ Output:
 `C:98.0%[S:97.8%,D:0.2%],F:0.4%,M:1.6%,n:1706,E:3.8%`  
 Final BUSCO score was 98% complete, with the complete + fragmented score being 98.40%.
 
-## 6 BLAST
+## BLAST for Mitochondrial Sequences
+BLAST was used to determine which contigs correspond to the Mitochodrial genome prior to NCBI final submission. This was done as NCBI requires a file that identifies these contigs. MoMitochondrion.fasta is the file used to determine Mitochondrial genomes in the UFVPY74_final.fasta sequence.
+`blastn -query MoMitochondrion.fasta -subject UFVPY74_final.fasta -evalue 1e-50 -max_target_seqs 20000 -outfmt '6 qseqid sseqid slen length qstart qend sstart send btop' -out MoMitochondrion.UFVPY74_final.BLAST`
+This gives us a .BLAST output which needs to run through another script so that a .csv file can be created that identifies contigs found to match the Mitochondrial genome. 
+`awk '$4/$3 > 0.9 {print $2 ",mitochondrion"}' MoMitochondrion.UFVPY74_final.BLAST > UFVPY74_mitochondrion.csv`
 
 ## 7 NCBI Submission
+Now that the UFVPY74_final.fasta file and UFVPY74_mitochondrion.csv are properly created and everything is trimmed, it is time to upload to NCBI for final submission.
+Submission number: SUB15302181
+accession number: JBNQXE000000000
+Genome Accession:
+We have assigned the following accession number to your submission:
+
+SUBID           BioProject      BioSample       Accession       Organism
+---------------------------------------------------
+SUB15302181     PRJNA926786     SAMN46817899    JBNQXE000000000 Pyricularia oryzae UFVPY74
+
+Please cite the accession number JBNQXE000000000 like this:
+
+This Whole Genome Shotgun project has been deposited at DDBJ/ENA/GenBank
+under the accession JBNQXE000000000. The version described
+in this paper is version JBNQXE010000000.
 
 ## 8 Gene Prediction
+# SNAP
+After final submission, SNAP was ran on UFVPY74_final. This involved a reference genome, B71Ref2. Using Maker and Fathom, the gene sequence was extracted and properly annotated for SNAP usage. 
+`maker2zff B71Ref2.gff`
+`fathom genome.ann genome.dna -gene-stats`
+`fathom genome.ann genome.dna -categorize 1000`
+`fathom uni.ann uni.dna -gene-stats`
+`fathom uni.ann uni.dna -export 1000 -plus`
+`forge export.ann export.dna`
+`hmm-assembler.pl Moryzae . > Moryzae.hmm`
+With the Moryzae parameter file now created, it is time to run SNAP
+`snap-hmm Moryzae.hmm UFVPY74_final.fasta > UFVPY74_final-snap.zff`
+Use Fathom to statistics
+`fathom MyGenome-snap.zff UFVPY74_final.fasta -gene-stats`
+Create a gff2 file for compatability
+`snap-hmm Moryzae.hmm UFVPY_final.fasta -gff > UFVPY74_final-snap.gff2`
+# Augustus
+Augustus was then also run, it is similar to snap but uses a unique Markov model for gene prediction
+`augustus --species=magnaporthe_grisea --gff3=on --singlestrand=true --progress=true ../snap/UFVPY74_final.fasta > UFVPY74_final-augustus.gff`
+# Maker
+Finally, Maker was used to combine the results of Snap and Augustus together
+`maker -CTL`
+The maker_opts.ctl file was edited to include proper setup, linking to Moryzae.hmm, UFVPY74_final, and the proper protein (genbank/ncbi-protein-Magnaporthe_organism.fasta)
+
+
+
+
 
 
 
