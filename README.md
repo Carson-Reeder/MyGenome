@@ -96,8 +96,8 @@ Maker was ran using command:
 After Maker was complete the gff3 files were then merged together
 `gff3_merge -d UFVPY74_final.maker.output/UFVPY74_final_master_datastore_index.log -o UFVPY74_final-annotations.gff`
 The fasta files were also merged similarly
-`fasta_merge -d UFVPY74_final.maker.output/UFVPY74_final_master_datastore_index.log`
-The final merged gff3 file as well as the UFVPY74_final.proteins.fasta file from fasta_merge were uploaded to the UKY MCC supercomputer.
+`fasta_merge -d UFVPY74_final.maker.output/UFVPY74_final_master_datastore_index.log -o UFVPY74_final-genes.fasta`
+The final merged gff3 file as well as the UFVPY74_final-genes.proteins.fasta file from fasta_merge were uploaded to the UKY MCC supercomputer.
 
 
 
