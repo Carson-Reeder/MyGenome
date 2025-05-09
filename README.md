@@ -49,7 +49,7 @@ BLAST was used to determine which contigs correspond to the Mitochodrial genome 
 This gives us a .BLAST output which needs to run through another script so that a .csv file can be created that identifies contigs found to match the Mitochondrial genome. 
 `awk '$4/$3 > 0.9 {print $2 ",mitochondrion"}' MoMitochondrion.UFVPY74_final.BLAST > UFVPY74_mitochondrion.csv`
 
-## 7 NCBI Submission
+## NCBI Submission
 Now that the UFVPY74_final.fasta file and UFVPY74_mitochondrion.csv are properly created and everything is trimmed, it is time to upload to NCBI for final submission.
 Submission number: SUB15302181
 accession number: JBNQXE000000000
@@ -66,7 +66,7 @@ This Whole Genome Shotgun project has been deposited at DDBJ/ENA/GenBank
 under the accession JBNQXE000000000. The version described
 in this paper is version JBNQXE010000000.
 
-## 8 Gene Prediction
+## Gene Prediction
 # SNAP
 After final submission, SNAP was ran on UFVPY74_final. This involved a reference genome, B71Ref2. Using Maker and Fathom, the gene sequence was extracted and properly annotated for SNAP usage. 
 `maker2zff B71Ref2.gff`
@@ -79,7 +79,7 @@ After final submission, SNAP was ran on UFVPY74_final. This involved a reference
 With the Moryzae parameter file now created, it is time to run SNAP
 `snap-hmm Moryzae.hmm UFVPY74_final.fasta > UFVPY74_final-snap.zff`
 Use Fathom to statistics
-`fathom MyGenome-snap.zff UFVPY74_final.fasta -gene-stats`
+`fathom UFVPY74_final-snap.zff UFVPY74_final.fasta -gene-stats`
 Create a gff2 file for compatability
 `snap-hmm Moryzae.hmm UFVPY_final.fasta -gff > UFVPY74_final-snap.gff2`
 # Augustus
@@ -89,6 +89,17 @@ Augustus was then also run, it is similar to snap but uses a unique Markov model
 Finally, Maker was used to combine the results of Snap and Augustus together
 `maker -CTL`
 The maker_opts.ctl file was edited to include proper setup, linking to Moryzae.hmm, UFVPY74_final, and the proper protein (genbank/ncbi-protein-Magnaporthe_organism.fasta)
+Tee was used to redirect Maker output to a file before running
+`ls -l ~ | tee listing.txt`
+Maker was ran using command:
+`maker 2>&1 | tee maker.log`
+After Maker was complete the gff3 files were then merged together
+`gff3_merge -d UFVPY74_final.maker.output/UFVPY74_final_master_datastore_index.log -o UFVPY74_final-annotations.gff`
+The fasta files were also merged similarly
+`fasta_merge -d UFVPY74_final.maker.output/UFVPY74_final_master_datastore_index.log`
+The final merged gff3 file as well as the UFVPY74_final.proteins.fasta file from fasta_merge were uploaded to the UKY MCC supercomputer.
+
+
 
 
 
