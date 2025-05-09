@@ -8,7 +8,7 @@ SRA accession: SRR32334370
 
 ## Raw Quality Assesment
 Raw sequences were analyzed with `fastqc` and are contained in the RawQualityAssesment folder. The foward(1) and reverse(2) reads both included.
-`fastqc UFVPY74_1.fq.gz UFVPY74_2.fq.gz`
+```fastqc UFVPY74_1.fq.gz UFVPY74_2.fq.gz```
 The fastqc output UFVPY74_1_fastqc.html and UFVPY74_2_fastq.html were then transferred to a windows machine and opened. The adapter content was the main focus of the fastqc analysis. 
 
 ## Trimming Raw Sequences
