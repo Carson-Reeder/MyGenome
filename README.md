@@ -6,6 +6,7 @@ The raw sequence files were first uploaded to NCBI database and linked with the 
 Bio project: PRJNA926786
 BioSampleId: SAMN46817899
 SRA accession: SRR32334370
+https://www.ncbi.nlm.nih.gov/sra/SRR32334370
 
 # Raw Quality Assesment
 Raw sequences were analyzed with `fastqc` and are contained in the RawQualityAssesment folder. The foward(1) and reverse(2) reads both included.
