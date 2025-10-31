@@ -1,4 +1,5 @@
-# This repository describing the method of processing, analyzing, and processing the raw genome sequence `UFVPY74`, a 
+# This is a repository describing the method of processing, analyzing, and processing the raw genome sequence `UFVPY74`, from 
+fungus Pyricularia oryzae.
 
 # NCBI Raw Sequence Upload
 The raw sequence files were first uploaded to NCBI database and linked with the ABT480 class project on NCBI
