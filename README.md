@@ -1,4 +1,4 @@
-# This is a repository for CS485G applied bioinformatics. 
+# This repository describing the method of processing, analyzing, and processing the raw genome sequence `UFVPY74`, a 
 
 # NCBI Raw Sequence Upload
 The raw sequence files were first uploaded to NCBI database and linked with the ABT480 class project on NCBI
@@ -9,7 +9,7 @@ SRA accession: SRR32334370
 # Raw Quality Assesment
 Raw sequences were analyzed with `fastqc` and are contained in the RawQualityAssesment folder. The foward(1) and reverse(2) reads both included.
 `fastqc UFVPY74_1.fq.gz UFVPY74_2.fq.gz`
-The fastqc output UFVPY74_1_fastqc.html and UFVPY74_2_fastq.html were then transferred to a windows machine and opened. The adapter content was the main focus of the fastqc analysis. 
+The fastqc output UFVPY74_1_fastqc.html and UFVPY74_2_fastq.html were then transferred to a windows machine and opened. The adaptor content was the main focus of the fastqc analysis. 
 
 # Trimming Raw Sequences
 Raw Sequences were trimmed using Trimmomatic 0.38
